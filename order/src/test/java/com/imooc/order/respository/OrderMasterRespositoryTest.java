@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -25,7 +26,7 @@ public class OrderMasterRespositoryTest  {
     @Test
     public void testSave()  {
         OrderMaster orderMaster = new OrderMaster();
-        orderMaster.setBuyerAddress("慕课网");
+        orderMaster.setBuyerAddress("网");
         orderMaster.setBuyerName("pyz");
         orderMaster.setBuyerOpenid("123456");
         orderMaster.setBuyerPhone("123456");
@@ -33,6 +34,8 @@ public class OrderMasterRespositoryTest  {
         orderMaster.setOrderId("123456");
         orderMaster.setOrderStatus(OrderStatusEnum.NEW.getCode());
         orderMaster.setPayStatus(PayStatusEnum.NEW.getCode());
+        orderMaster.setCreateTime(new Date());
+        orderMaster.setUpdateTime(new Date());
 
         OrderMaster save = orderMasterRespository.save(orderMaster);
         Assert.assertNotNull(save);
