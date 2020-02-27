@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @FeignClient(name = "product")
 public interface ProductClient {
 
-    @GetMapping("/msg")
+    @GetMapping("/product/msg")
     String productMsg();
 }
