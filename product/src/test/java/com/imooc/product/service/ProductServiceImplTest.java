@@ -1,5 +1,6 @@
 package com.imooc.product.service;
 
+import com.imooc.product.DTO.CartDTO;
 import com.imooc.product.dataobject.ProductInfo;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
@@ -28,6 +29,12 @@ class ProductServiceImplTest {
     public void findList() throws Exception{
         List<ProductInfo> list = productService.findList(Arrays.asList("111","222"));
         Assert.assertTrue(list.size() > 0 );
+    }
+
+    @Test
+    public void decreaseStockTest() throws Exception{
+        CartDTO cartDTO = new CartDTO("111",2);
+        productService.decreaseStock(Arrays.asList(cartDTO));
     }
 
 }

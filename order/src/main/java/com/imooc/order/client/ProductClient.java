@@ -1,5 +1,6 @@
 package com.imooc.order.client;
 
+import com.imooc.order.dto.CartDTO;
 import com.imooc.order.entity.ProductInfo;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,4 +19,7 @@ public interface ProductClient {
     //
     @PostMapping("/product/listForOrder")
     List<ProductInfo> listForOrder(@RequestBody List<String> productIdlist);
+
+    @GetMapping("/product/decreaseStock")
+    void decreasseStock(@RequestBody List<CartDTO> cartDTOS);
 }
