@@ -9,9 +9,11 @@ import com.imooc.product.dataobject.ProductInfo;
 import com.imooc.product.service.CategoryService;
 import com.imooc.product.service.ProductService;
 import com.imooc.product.utils.ResultVOUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,6 +23,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/product")
+@Slf4j
 public class ProductController {
     @Autowired
     private ProductService productService;
@@ -58,4 +61,19 @@ public class ProductController {
         }
         return ResultVOUtils.success(productVOList);
     }
+
+
+    @GetMapping("/msg")
+    public String ServerControoler() {
+        return "this is a msg";
+    }
+
+
+    //
+    @GetMapping("/listForOrder")
+    public List<ProductInfo> listForOrder(@RequestBody List<String> productIdlist) {
+        log.info("request={}", productIdlist);
+        return productService.findList(productIdlist);
+    }
+
 }
