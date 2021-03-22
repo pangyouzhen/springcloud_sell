@@ -2,7 +2,6 @@
 *iml
 *mvnw
 *mvnw.cmd
-product/src/main/java/com/imooc/product/rule
 *.mvn
 target/
 !.mvn/wrapper/maven-wrapper.jar
