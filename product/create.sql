@@ -71,3 +71,11 @@ create table order_detail(
   foreign key (order_id) references order_master(order_id)
 
 );
+
+truncate table order_detail;
+truncate table order_master;
+delete from order_master;
+
+
+insert into order_master(order_id) VALUES
+("158294512063778197");
